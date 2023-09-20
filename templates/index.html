@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    <form action="" method="get">
+        {% csrf_token %}
+        <input type="text" id="cityInput" name="city">
+        <ul id="citiesToClick">
+            
+        </ul>
+        <button type="submit" id="citySubmitButton">search</button>
+    </form>
+    {% if failed is False %}
+        <p>city: {{city}}</p>
+        <p>country: {{country}}</p>
+        <p>latitude: {{latitude}}</p>
+        <p>longitude: {{longitude}}</p>
+        <p>timezone: {{timezone}}</p>
+        <p>elevation: {{elevation}}</p>
+        <p>temperature: {{temperature}}C</p>
+        <p>windspeed: {{windspeed}}Km/h</p>
+        <p>winddirection: {{winddirection}}</p>
+        {% if is_day == 1 %}
+            <p>It's Day Time</p>
+        {% else %}
+            <p>It's Night Time</p>
+        {% endif %}
+            <p>date: {{date}}</p>
+    {% else %}
+        <p>{{message}}</p>
+    {% endif %}
+<script src="{% static 'home/app.js' %}"></script>
+</body>
+</html>

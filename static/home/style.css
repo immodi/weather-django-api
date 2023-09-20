@@ -1,0 +1,10 @@
+.city {
+    color: rebeccapurple;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.iso {
+    color: black;
+    cursor: default;
+}
